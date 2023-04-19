@@ -1,0 +1,33 @@
+﻿@*
+   
+*@
+@{  ViewData["Title"] = "Details";
+}
+@model bHirschi_final.Models.Entertainer
+
+<h1>@ViewData["Title"] of @Model.EntStageName</h1>
+
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Street Address: </b>@Model.EntStreetAddress</li>
+        <li class="list-group-item"><b>City: </b>@Model.EntCity</li>
+        <li class="list-group-item"><b>State: </b>@Model.EntState</li>
+        <li class="list-group-item"><b>Zip: </b>@Model.EntZipCode</li>
+        <li class="list-group-item"><b>Phone: </b>@Model.EntPhoneNumber</li>
+        <li class="list-group-item"><b>Webpage: </b>@Model.EntWebPage</li>
+        <li class="list-group-item"><b>Email: </b>@Model.EntEMailAddress</li>
+        <li class="list-group-item"><b>SSN: </b>@Model.EntSSN</li>
+        <li class="list-group-item"><b>Date Entered: </b>@Model.DateEntered</li>
+    </ul>
+</div>
+<br />
+<div>
+    <form method="post" asp-action="Edit">
+        <input type="hidden" name="entId" value="@Model.EntertainerID" />
+        <button type="submit"  class="btn btn-lg btn-block btn-primary" style="width: 18rem;">Edit</button>
+    </form><br />
+    <form method="post" asp-action="Delete">
+        <input type="hidden" name="entId" value="@Model.EntertainerID" />
+        <button type="submit"  class="btn btn-lg btn-block btn-danger" style="width: 18rem;">Delete</button>
+    </form>
+</div>

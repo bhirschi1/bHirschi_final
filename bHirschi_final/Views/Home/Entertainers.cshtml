@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Entertainers";
+}
+@model List<Entertainer>
+
+
+<h1>@ViewData["Title"]</h1>
+
+<h6>The current list of entertainer stage names available for booking:</h6>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        @foreach (var e in Model)
+        {  
+        <li class="list-group-item">
+            @e.EntStageName
+            <form method="post" asp-action="Details" >
+                <input type="hidden" name="entId" value="@e.EntertainerID" />
+                <button type="submit" class="badge badge-primary badge-pill">Details</button>
+            </form>
+            </li>  
+        }
+        </ul>
+</div>
+<div><br />
+    <form method="get" asp-action="Add">
+        <button type="submit" class="btn btn-success">Add Entertainer</button>
+    </form>
+</div>
+
